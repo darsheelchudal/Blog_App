@@ -18,7 +18,7 @@ export class AuthService {
         ID.unique(),
         email,
         password,
-        name    
+        name
       );
       if (userAccount) {
         return await this.login({ email, password });
@@ -46,7 +46,7 @@ export class AuthService {
 
     return null;
   }
-  async Logout() {
+  async logout() {
     try {
       await this.account.deleteSessions();
     } catch (error) {
@@ -54,5 +54,7 @@ export class AuthService {
     }
   }
 }
+
+const authService = new AuthService();
 
 export default authService;
